@@ -10,3 +10,8 @@ def missing_keys(payload: Dict, required: Iterable[str]) -> List[str]:
 
 def is_valid_slug(value: str) -> bool:
     return bool(SLUG_RE.match(str(value or '').strip()))
+
+
+def clean_text_field(raw: str, max_len: int = 160) -> str:
+    cleaned = ' '.join(str(raw or '').split())
+    return cleaned[:max_len]
