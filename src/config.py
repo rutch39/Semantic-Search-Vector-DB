@@ -17,3 +17,7 @@ def load_config() -> RuntimeConfig:
         max_retries=int(os.getenv('MAX_RETRIES', '3')),
         debug=os.getenv('DEBUG', '0').lower() in {'1', 'true', 'yes'},
     )
+
+
+def clamp_port(port: int, default: int = 8080) -> int:
+    return port if isinstance(port, int) and 1 <= port <= 65535 else default
