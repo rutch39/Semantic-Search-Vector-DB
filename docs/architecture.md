@@ -6,3 +6,6 @@
 - `src/retry.py`: Jittered exponential backoff policies.
 - `src/validator.py`: Input validation and slug sanitization.
 - `src/metrics.py`: Lightweight counters and latency histograms.
+
+### Configuration Precedence
+Process environment variables always override default values defined in `config/defaults.json`.
