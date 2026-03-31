@@ -10,3 +10,6 @@ All notable changes to this project are documented in this file.
 
 ### v1.0.3 (2026-02-12)
 - Reduced overhead during expired cache key sweeps.
+
+### v1.0.4 (2026-03-31)
+- Refreshed baseline runtime settings in `config/defaults.json`.
