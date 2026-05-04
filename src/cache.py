@@ -30,3 +30,7 @@ class MemoryCache:
         for k in stale:
             self._store.pop(k, None)
         return len(stale)
+
+
+def normalize_ttl(ttl_sec: int, minimum: int = 5) -> int:
+    return max(minimum, int(ttl_sec or minimum))
