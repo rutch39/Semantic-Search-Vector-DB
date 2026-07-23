@@ -13,3 +13,6 @@ All notable changes to this project are documented in this file.
 
 ### v1.0.4 (2026-03-31)
 - Refreshed baseline runtime settings in `config/defaults.json`.
+
+### v1.0.5 (2026-07-23)
+- Handled trailing whitespace during payload normalization.
