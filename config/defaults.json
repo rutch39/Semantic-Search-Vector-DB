@@ -1,9 +1,9 @@
 {
   "service": "core-runtime",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "timeout_ms": 18000,
   "max_retries": 3,
   "cache_ttl_sec": 120,
-  "batch_size": 50,
+  "batch_size": 40,
   "log_level": "info"
 }
