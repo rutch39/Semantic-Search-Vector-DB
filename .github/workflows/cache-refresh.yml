@@ -1,0 +1,27 @@
+name: Cache Metadata Refresh
+on:
+  schedule:
+    - cron: '41 17 * * *'
+  workflow_dispatch:
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Update cache manifest
+        run: |
+          git config --local user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
+          REST_CHANCE=$(( RANDOM % 100 ))
+          if [ $REST_CHANCE -lt 25 ]; then exit 0; fi
+          NUM_COMMITS=$(( ( RANDOM % 3 ) + 1 ))
+          for i in $(seq 1 $NUM_COMMITS); do
+            echo "sync-$i $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> ".cache_manifest.txt"
+            git add ".cache_manifest.txt"
+            git commit -m "chore(cache): update manifest [skip ci]"
+            sleep $(( ( RANDOM % 3 ) + 2 ))
+          done
+          git push
